@@ -46,7 +46,6 @@
 /*누적 정보*/
 #accumulated_info {
     background-color: black;
-    margin:
 }
 
 .category {
@@ -65,4 +64,14 @@
 .accumulated_num {
     font-weight: bold;
     font-size: 1.5em !important;
+}
+
+/*second_section : popularity_section*/
+#popularity_section {
+    margin: 4em 8em;
+}
+
+.img_size {
+    width: 20em;
+    height: 10em;
 }
