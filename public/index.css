@@ -1,4 +1,9 @@
-/*firstSection*/
+/*general_class*/
+.background_grey {
+    background: #F8F8FF;
+}
+
+/*first_section*/
 .first_section_nav {
     padding: 1em;
     background: skyblue;
@@ -41,12 +46,19 @@
 /*누적 정보*/
 #accumulated_info {
     background-color: black;
+    margin:
 }
 
 .category {
     display: inline-block;
     padding : 0 7em;
     color: white;
+    font-weight: bold;
+}
+
+.icon_category {
+    display: inline-block;
+    padding : 1em 4em;
     font-weight: bold;
 }
 
