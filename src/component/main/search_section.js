@@ -7,13 +7,13 @@ const accum_data = [
 ]
 
 const category_data = [
-    { icon: "glyphicon glyphicon-user", name: "레슨" }, 
-    { icon: "glyphicon glyphicon-home", name: "홈/리빙" },
-    { icon: "glyphicon glyphicon-list-alt", name: "이벤트" },
-    { icon: "glyphicon glyphicon-level-up", name: "비즈니스" },
-    { icon: "glyphicon glyphicon-tasks", name: "디자인/개발" },
-    { icon: "glyphicon glyphicon-heart-empty", name: "건강/미용" },
-    { icon: "glyphicon glyphicon-th", name: "기타" } 
+    { icon: "glyphicon glyphicon-user", name: "레슨", href:'' }, 
+    { icon: "glyphicon glyphicon-home", name: "홈/리빙", href:'' },
+    { icon: "glyphicon glyphicon-list-alt", name: "이벤트", href:'' },
+    { icon: "glyphicon glyphicon-level-up", name: "비즈니스", href:'' },
+    { icon: "glyphicon glyphicon-tasks", name: "디자인/개발", href:'' },
+    { icon: "glyphicon glyphicon-heart-empty", name: "건강/미용", href:'' },
+    { icon: "glyphicon glyphicon-th", name: "기타", href:'' } 
 ]
 
    
@@ -30,12 +30,12 @@ export default class SearchSection extends Component {
         )
     }
 
-    renderIcon({icon, name}){
+    renderIcon({icon, name, href}){
         return (
-            <div key={name} className="icon_category">
+            <a key={name} className="icon_category" href=''>
                <span className={icon} aria-hidden="true"></span>
                <p>{name}</p>
-            </div>
+            </a>
         );
     }
 

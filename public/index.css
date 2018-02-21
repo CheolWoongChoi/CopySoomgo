@@ -3,6 +3,10 @@
     background: #F8F8FF;
 }
 
+.basic_margin {
+    margin: 5em, auto;
+}
+
 /*first_section*/
 .first_section_nav {
     padding: 1em;
@@ -61,6 +65,14 @@
     font-weight: bold;
 }
 
+.icon_category:hover > p {
+    color: rgb(47, 255, 109);
+}
+
+.icon_category:hover > span {
+    color: rgb(47, 255, 109);
+}
+
 .accumulated_num {
     font-weight: bold;
     font-size: 1.5em !important;
@@ -75,3 +87,18 @@
     width: 20em;
     height: 10em;
 }
+
+#gosu_intro {
+    margin: 5em, auto;
+}
+
+#help_info {
+    margin: 5em;
+    display: inline-block;
+}
+
+.help_info_title {
+    font-weight: bold;
+    color: rgb(47, 224, 24);
+}
+

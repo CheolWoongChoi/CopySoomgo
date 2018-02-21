@@ -2,38 +2,73 @@ import React, { Component } from 'react';
 import Slick from 'react-slick';
 
 const relative_url = '../../../img/';
+const service_data = [
+    {image: 'math.jpg', title: '수학 과외', gosu_num: '0'},
+    {image: 'guitar.jpg', title: '기타 레슨', gosu_num: '1'},
+    {image: 'english.jpg', title: '영어 레슨', gosu_num: '2'},
+    {image: 'vocal.jpg', title: '보컬 레슨', gosu_num: '3'}
+]
+const gosu_data = [
+    {title: '1', name: 'a', grade: '0', hired_num:'11', address:'d'},
+    {title: '2', name: 'b', grade: '1', hired_num:'22', address:'f'},
+    {title: '3', name: 'c', grade: '2', hired_num:'33', address:'g'},
+    {title: '4', name: 'd', grade: '3', hired_num:'44', address:'h'}  
+]
 
+//Slick Prev, Next 버튼
 function SampleNextArrow(props) {
     const {className, style, onClick} = props
-    return (
-      <div
-        className={className}
-        style={{...style, display: 'block', background: 'red'}}
-        onClick={onClick}
-      ></div>
-    );
-  }
+        return (
+        <div
+            className={className}
+            style={{...style, display: 'block', background: 'red'}}
+            onClick={onClick}
+        ></div>
+        );
+}
   
-  function SamplePrevArrow(props) {
+function SamplePrevArrow(props) {
     const {className, style, onClick} = props
-    return (
-      <div
-        className={className}
-        style={{...style, display: 'block', background: 'green'}}
-        onClick={onClick}
-      ></div>
-    );
-  }
+        return (
+            <button
+                className={className}
+                style={{...style, display: 'block', background: 'green'}}
+                onClick={onClick}
+            >prev</button>
+        );
+}
 
 export default class PopularitySection extends Component {
     
+    renderPopularService({image, title, gosu_num}){
+        return(
+            <div key={title}>
+                <img className="img_size" src={relative_url+image} alt="인기 서비스" />
+                <h5><strong>{title}</strong></h5>
+                <h6>최근 활동 중인 고수 : {gosu_num}명</h6>
+            </div>
+        )
+    }
+
+    renderActiveGosu({title, name, grade, hired_num, address}){
+        return(
+            <div key={title}>
+                제목 : {title},
+                이름 : {name},
+                평점 : {grade},
+                고용횟수 : {hired_num},
+                주소 : {address}
+            </div>
+        )
+    }
+
     render(){
         var settings = {
             arrows: true,
             infinite: true,
-            speed: 500,
-            slidesToShow: 3,
-            slidesToScroll: 2,
+            speed: 700,
+            slidesToShow: 3.5,
+            slidesToScroll: 1,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />
         };
@@ -41,76 +76,52 @@ export default class PopularitySection extends Component {
         return (
             <div id="popularity_section">
                 <div>
-                <h3>숨고의 인기 서비스</h3><br/><br/>
-                    <Slick {...settings}>
-                        <div>
-                            <img className="img_size" src={`${relative_url}math.jpg`} />
-                            <h5><strong>수학 과외</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                        <div>
-                            <img className="img_size" src={`${relative_url}guitar.jpg`} />
-                            <h5><strong>기타 레슨</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                        <div>
-                            <img className="img_size" src={`${relative_url}english.jpg`} />
-                            <h5><strong>영어 레슨</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                        <div>
-                            <img className="img_size" src={`${relative_url}vocal.jpg`} />
-                            <h5><strong>보컬 레슨</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                    </Slick>
-                </div><br/><br/>
-
+                    <h3>숨고의 인기 서비스</h3><br/><br/>
+                        <div align="justify">
+                            <Slick {...settings}>
+                                {service_data.map( data => this.renderPopularService(data) )}
+                            </Slick>
+                        </div><br/><br/>
+                </div>
                 <div>
-                <h3>숨고의 활동 고수</h3><br/><br/>
-                    <Slick {...settings}>
-                        <div>
-                            <img className="img_size" src={`${relative_url}math.jpg`} />
-                            <h5><strong>수학 과외</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
+                    <h3>숨고의 활동 고수</h3><br/><br/>
+                        <div align="center">
+                            <Slick {...settings}>
+                                {gosu_data.map( data => this.renderActiveGosu(data) )}   
+                            </Slick>
                         </div>
-                        <div>
-                            <img className="img_size" src={`${relative_url}guitar.jpg`} />
-                            <h5><strong>기타 레슨</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                        <div>
-                            <img className="img_size" src={`${relative_url}english.jpg`} />
-                            <h5><strong>영어 레슨</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                        <div>
-                            <img className="img_size" src={`${relative_url}vocal.jpg`} />
-                            <h5><strong>보컬 레슨</strong></h5>
-                            <h6>최근 활동 중인 고수 : Num명</h6>
-                        </div>
-                    </Slick>
                 </div><br/><br/><br/><br/>
 
                 <div>
                     <div align="center">
                         <h2>도움이 필요한 모든 일에 빠르고 정확하게 숨은 고수를 찾아드려요</h2>
                     </div>
-                    <div>
-                        <img src="" alt="고수 사진들"/>
-                        1. 고수를 소개받으세요.
-                        더 이상 시간을 낭비하지 마세요. 필요한 일과 조건만 알려드려요. 그 이후엔 숨고가 딱! 맞는
-                        고수를 무료로 소개해 드릴게요.
-
-                        2. 고수를 비교해보세요.
-                        요청 후 최대 48시간 내로 고수들의 맞춤 견적서를 받아보실 수 있어요. 견적서를 통해 쉽게 
-                        고수들을 비교할 수 있어요.
-
-                        3. 고수를 선택하세요
-                        원하는 조건에 딱! 맞는 고수를 선택하세요. 직접연락을 해 세부 사항을 조율할 수 있어요.
+                    <div id="gosu_intro">
+                        <img src={`${relative_url}gosu_image.png`} alt="고수 사진들"/>
+                        <div id="help_info">
+                            <div>
+                                <h4 className="help_info_title">1. 고수를 소개받으세요.</h4>
+                                <p>
+                                    더 이상 시간을 낭비하지 마세요. 필요한 일과 조건만 알려드려요. 그 이후엔 숨고가 딱! 맞는
+                                    <br/>고수를 무료로 소개해 드릴게요.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 className="help_info_title">2. 고수를 비교해보세요.</h4>
+                                <p>
+                                    요청 후 최대 48시간 내로 고수들의 맞춤 견적서를 받아보실 수 있어요. 견적서를 통해 쉽게 
+                                    <br/>고수들을 비교할 수 있어요.
+                            </p>
+                            </div>
+                            <div>
+                                <h4 className="help_info_title">3. 고수를 선택하세요</h4>
+                                <p>
+                                    원하는 조건에 딱! 맞는 고수를 선택하세요. 직접연락을 해 세부 사항을 조율할 수 있어요.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         )
     }
