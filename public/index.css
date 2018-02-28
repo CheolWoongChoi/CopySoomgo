@@ -1,4 +1,9 @@
-/*general_class*/
+/** General_CSS **/
+
+.container-fluid{
+    padding: 0;
+}
+
 .background_grey {
     background: #F8F8FF;
 }
@@ -7,23 +12,58 @@
     margin: 5em, auto;
 }
 
-/*first_section*/
-.first_section_nav {
-    padding: 1em;
-    background: skyblue;
+.hidden {
+    display: none !important;
+}
+
+
+/** Search_Section.js **/
+
+
+/* 네비게이션 바 */
+.navbar {
+    background-color: rgba(236, 228, 227, 0.795);
+    padding: 10px;
+}
+
+.navbar-header {
+    text-align: center;
+}
+
+.navbar-header > div {
+    display: inline-block;
+    width: 100%;
+}
+
+.navbar-button {
+    float: left;
+    margin-left: 1em;
 }
 
 .brand_logo {
     width: 10em;
-    height: auto;
+    margin-top: .3em;
+    margin-right: 3.7em;
+}
+
+.cancle_icon {
+    width: 22px;
+    height: 20px;
+}
+
+#link_group{
+    justify-content: center;
+    align-items: center;
 }
 
 .link_name {
-    margin: auto, 2em;
-    padding: 1em;
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 1em;
+}
+
+.link_name:hover {
+    text-decoration: none;
 }
 
 #first_section_nav_link_name{
@@ -31,8 +71,11 @@
     float: right;
 }
 
+
+/* 검색 창 */
+
 .first_section_search {
-    margin: 10rem auto;
+    margin: 5em auto;
 }
 
 #first_section_search_word {
@@ -40,37 +83,20 @@
 }
 
 #first_section_search_input {
-    margin: 2em auto;
+    margin: 1em auto;
     border-style: solid;
     border-width: 0.7em;
     border-radius: 0.5em;
-    width: 42em;
+    max-width: 45em;
 }
+
 
 /*누적 정보*/
-#accumulated_info {
+
+.accumulated_info {
     background-color: black;
-}
-
-.category {
-    display: inline-block;
-    padding : 0 7em;
-    color: white;
-    font-weight: bold;
-}
-
-.icon_category {
-    display: inline-block;
-    padding : 1em 4em;
-    font-weight: bold;
-}
-
-.icon_category:hover > p {
-    color: rgb(47, 255, 109);
-}
-
-.icon_category:hover > span {
-    color: rgb(47, 255, 109);
+    text-align: center;
+    padding: .3em;
 }
 
 .accumulated_num {
@@ -78,7 +104,40 @@
     font-size: 1.5em !important;
 }
 
-/*second_section : popularity_section*/
+.accum_category {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    width: 23%;
+}
+
+
+/* 아이콘 카테고리 */
+
+.icon_category {
+    text-align: center;
+    padding: .5em;
+}
+
+.icon {
+    display: inline-block;
+    font-weight: bold;
+    width: 12%;
+}
+
+.icon:hover > p, .icon:hover > span {
+    color: rgb(47, 255, 109);
+}
+
+.icon:hover {
+    text-decoration: none !important;
+}
+
+
+
+/** Popularity_Section **/
+
+/* 인기 서비스 */
 #popularity_section {
     margin: 4em 8em;
 }
@@ -88,13 +147,17 @@
     height: 10em;
 }
 
+.arrow_img_size {
+    width: 2em;
+    height: 2em;
+}
+
 #gosu_intro {
-    margin: 5em, auto;
+    margin: 5em auto;
 }
 
 #help_info {
-    margin: 5em;
-    display: inline-block;
+    margin: 5em auto;
 }
 
 .help_info_title {

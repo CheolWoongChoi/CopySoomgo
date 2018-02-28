@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slick from 'react-slick';
 
-const relative_url = '../../../img/';
+//const relative_url = '../../img/';
 const service_data = [
     {image: 'math.jpg', title: '수학 과외', gosu_num: '0'},
     {image: 'guitar.jpg', title: '기타 레슨', gosu_num: '1'},
@@ -16,34 +16,31 @@ const gosu_data = [
 ]
 
 //Slick Prev, Next 버튼
-function SampleNextArrow(props) {
-    const {className, style, onClick} = props
+function PrevArrow(props) {
+    const {className, onClick} = props
+
         return (
-        <div
-            className={className}
-            style={{...style, display: 'block', background: 'red'}}
-            onClick={onClick}
-        ></div>
+            <img src={require('../../img/prev_arrow.png')} alt="prev_arrow" 
+                className={className} onClick={onClick}/>
+        );
+}
+
+function NextArrow(props) {
+    const {className, onClick} = props
+
+        return (
+            <img src={require('../../img/next_arrow.png')} alt="next_arrow" 
+                className={className} onClick={onClick}/>
         );
 }
   
-function SamplePrevArrow(props) {
-    const {className, style, onClick} = props
-        return (
-            <button
-                className={className}
-                style={{...style, display: 'block', background: 'green'}}
-                onClick={onClick}
-            >prev</button>
-        );
-}
 
 export default class PopularitySection extends Component {
     
     renderPopularService({image, title, gosu_num}){
         return(
             <div key={title}>
-                <img className="img_size" src={relative_url+image} alt="인기 서비스" />
+                <img className="img_size" src={require('../../img/'+image)} alt="인기 서비스" />
                 <h5><strong>{title}</strong></h5>
                 <h6>최근 활동 중인 고수 : {gosu_num}명</h6>
             </div>
@@ -67,38 +64,42 @@ export default class PopularitySection extends Component {
             arrows: true,
             infinite: true,
             speed: 700,
-            slidesToShow: 3.5,
+            slidesToShow: 3,
             slidesToScroll: 1,
-            nextArrow: <SampleNextArrow />,
-            prevArrow: <SamplePrevArrow />
+            nextArrow: <NextArrow />,
+            prevArrow: <PrevArrow />
         };
 
         return (
-            <div id="popularity_section">
+            <div className="container-fluid" id="popularity_section">
                 <div>
-                    <h3>숨고의 인기 서비스</h3><br/><br/>
-                        <div align="justify">
-                            <Slick {...settings}>
-                                {service_data.map( data => this.renderPopularService(data) )}
-                            </Slick>
-                        </div><br/><br/>
-                </div>
-                <div>
-                    <h3>숨고의 활동 고수</h3><br/><br/>
-                        <div align="center">
-                            <Slick {...settings}>
-                                {gosu_data.map( data => this.renderActiveGosu(data) )}   
-                            </Slick>
-                        </div>
-                </div><br/><br/><br/><br/>
-
-                <div>
-                    <div align="center">
-                        <h2>도움이 필요한 모든 일에 빠르고 정확하게 숨은 고수를 찾아드려요</h2>
+                    <div>
+                        <h3><strong>숨고의 인기 서비스</strong></h3><br/><br/>
+                            <div align="justify">
+                                <Slick {...settings}>
+                                    {service_data.map( data => this.renderPopularService(data) )}
+                                </Slick>
+                            </div><br/><br/>
                     </div>
-                    <div id="gosu_intro">
-                        <img src={`${relative_url}gosu_image.png`} alt="고수 사진들"/>
-                        <div id="help_info">
+                    <div>
+                        <h3><strong>숨고의 활동 고수</strong></h3><br/><br/>
+                            <div align="justify">
+                                <Slick {...settings}>
+                                    {gosu_data.map( data => this.renderActiveGosu(data) )}   
+                                </Slick>
+                            </div>
+                    </div>
+                </div><br/><br/><br/>
+                <div id="gosu_intro" className="row">
+                    <div align="center">
+                        <h2><strong>도움이 필요한 모든 일에 빠르고 정확하게 숨은 고수를 찾아드려요</strong></h2>
+                    </div>
+                    <div id="help_info">
+                        <div className="col-md-6">
+                            <img src={require('../../img/gosu_image.png')} className="img-responsive" alt="고수 사진들"/>
+                        </div>
+                        <div className="col-md-6">
+                            <br/>
                             <div>
                                 <h4 className="help_info_title">1. 고수를 소개받으세요.</h4>
                                 <p>
