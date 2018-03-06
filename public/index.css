@@ -16,11 +16,15 @@
     display: none !important;
 }
 
+.text_center {
+    text-align: center;
+}
 
 /** Search_Section.js **/
 
 
 /* 네비게이션 바 */
+
 .navbar {
     background-color: rgba(236, 228, 227, 0.795);
     padding: 10px;
@@ -143,7 +147,7 @@
 }
 
 .img_size {
-    width: 20em;
+    width: 17em;
     height: 10em;
 }
 
@@ -165,3 +169,62 @@
     color: rgb(47, 224, 24);
 }
 
+
+/* Participant Section */
+
+.participant_section {
+    padding: 4em 4em;
+}
+
+.thumbnail {
+    margin: 5em auto;
+}
+
+.gosu_background{
+    display: flex;
+    align-items: flex-end;
+    background-repeat: no-repeat;
+    color: white;
+    font-weight: bold;
+    margin: 0;  
+    padding: 1em 1em;
+    width: 100%;
+    height: 25em;
+    line-height: 1em;
+}
+
+.gosu_background_image_01 {
+    background-image: url('./index_hero_01.jpg');
+    background-size: 500px 500px;
+}
+
+.gosu_background_image_02 {
+    background-image: url('./index_hero_02.jpg');
+    background-size: 500px 500px;
+}
+
+.gosu_background_image_03 {
+    background-image: url('./index_hero_03.jpg');
+    background-size: 500px 500px;
+}
+
+.gosu_background_image_04 {
+    background-image: url('./index_hero_04.jpg');
+    background-size: 500px 500px;
+}
+
+.comment {
+    height: 17em;
+    line-height: 2em;
+    padding: .5em;
+}
+
+.media {
+    border-top: 1px solid #e1e2e6;
+    padding-top: 2em;
+    padding-left: .5em;
+}
+
+#media-body-stars > img{
+    display: inline-block;
+}

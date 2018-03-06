@@ -8,6 +8,7 @@ const service_data = [
     {image: 'english.jpg', title: '영어 레슨', gosu_num: '2'},
     {image: 'vocal.jpg', title: '보컬 레슨', gosu_num: '3'}
 ]
+
 const gosu_data = [
     {title: '1', name: 'a', grade: '0', hired_num:'11', address:'d'},
     {title: '2', name: 'b', grade: '1', hired_num:'22', address:'f'},
@@ -67,7 +68,12 @@ export default class PopularitySection extends Component {
             slidesToShow: 3,
             slidesToScroll: 1,
             nextArrow: <NextArrow />,
-            prevArrow: <PrevArrow />
+            prevArrow: <PrevArrow />,
+            responsive: [ 
+                { breakpoint: 650, settings: { slidesToShow: 1 } },
+                { breakpoint: 930, settings: { slidesToShow: 2 } }, 
+                { breakpoint: 1024, settings: { slidesToShow: 3 } }, 
+            ]
         };
 
         return (
