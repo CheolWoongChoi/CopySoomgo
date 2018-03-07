@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import logo1 from '../../img/brand_logo.png';
+import logo2 from '../../img/english.jpg';
 
 const accum_data = [
     { name: "누적 요청서", num: "510,000", unit: "개"},
@@ -64,7 +66,7 @@ export default class SearchSection extends Component {
 
     render(){
         return(
-            <div className="container-fluid">
+            <div className="container-fluid carousel_effect index_gosu_01">
                 {/* 네비게이션 바 */}
                 <nav className="navbar navbar-default">
                     <div className="container-fluid">
@@ -107,7 +109,7 @@ export default class SearchSection extends Component {
                     </div>
                     <div className="col-md-12">
                         <form>
-                            <div className="input-group" id="first_section_search_input">
+                            <div className="input-group input-group-lg" id="first_section_search_input">
                                 <input type="text" className="form-control" placeholder="어떤 전문가를 찾으세요?"/>
                                 <span className="input-group-btn">
                                     <button type="submit" className="btn btn-primary">고수찾기</button>
@@ -119,14 +121,14 @@ export default class SearchSection extends Component {
 
                 {/* 누적 정보 */}
                 <div className="accumulated_info row">
-                   {accum_data.map( data => this.renderAccumInfo(data) )}
+                    {accum_data.map( data => this.renderAccumInfo(data) )}
                 </div>
 
                 {/* 아이콘 표시 */}
                 <div className="icon_category row background_grey">     
                     {category_data.map( data => this.renderIcon(data) )}
                 </div>
-            </div>
+        </div> //container-fluid
         );
     }
 }

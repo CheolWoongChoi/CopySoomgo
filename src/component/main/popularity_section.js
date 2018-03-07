@@ -1,19 +1,44 @@
 import React, { Component } from 'react';
 import Slick from 'react-slick';
+import active_gosu from '../../img/popularity_section/active_gosu_image.png';
 
 //const relative_url = '../../img/';
 const service_data = [
-    {image: 'math.jpg', title: '수학 과외', gosu_num: '0'},
-    {image: 'guitar.jpg', title: '기타 레슨', gosu_num: '1'},
-    {image: 'english.jpg', title: '영어 레슨', gosu_num: '2'},
-    {image: 'vocal.jpg', title: '보컬 레슨', gosu_num: '3'}
+    { image: 'math.jpg', title: '수학 과외', gosu_num: '0'},
+    { image: 'guitar.jpg', title: '기타 레슨', gosu_num: '1'},
+    { image: 'english.jpg', title: '영어 레슨', gosu_num: '2'},
+    { image: 'vocal.jpg', title: '보컬 레슨', gosu_num: '3'}
 ]
 
 const gosu_data = [
-    {title: '1', name: 'a', grade: '0', hired_num:'11', address:'d'},
-    {title: '2', name: 'b', grade: '1', hired_num:'22', address:'f'},
-    {title: '3', name: 'c', grade: '2', hired_num:'33', address:'g'},
-    {title: '4', name: 'd', grade: '3', hired_num:'44', address:'h'}  
+    {
+        title: "Danny's Heart Swing", 
+        name: '대니리(Danny Lee)', 
+        review_num: 14, 
+        hired_num: 7, 
+        address:'서울 마포구 아현동 327-25'
+    },
+    {
+        title: '와가마마스쿨', 
+        name: '김명운', 
+        review_num: '15', 
+        hired_num:'17', 
+        address:'서울 강남구 역삼동 705-14'
+    },
+    {
+        title: '영어 중국어 과외', 
+        name: '손용준', 
+        review_num: '9', 
+        hired_num:'8', 
+        address:'서울 광진구 천호대로 지하 550 (능동, 7호선 군자역)'
+    },
+    {
+        title: '재즈피아노와 싱어송라이팅, 재즈화성학 및 시창청음과 우쿨렐레 레슨', 
+        name: '방지선', 
+        review_num: '1', 
+        hired_num:'5', 
+        address:'서울 마포구 동교로 192-1 (동교동)'
+    }  
 ]
 
 //Slick Prev, Next 버튼
@@ -38,6 +63,16 @@ function NextArrow(props) {
 
 export default class PopularitySection extends Component {
     
+    renderStars(){
+        let stars = [];
+
+        for(let i=0; i<5; i++){
+            stars.push(<img key={i} src={require("../../img/popularity_section/review_star.png")} 
+                alt="review_star"/>);
+        }
+        return stars;
+    }
+
     renderPopularService({image, title, gosu_num}){
         return(
             <div key={title}>
@@ -48,14 +83,30 @@ export default class PopularitySection extends Component {
         )
     }
 
-    renderActiveGosu({title, name, grade, hired_num, address}){
+    renderActiveGosu({title, name, review_num, hired_num, address}){
         return(
-            <div key={title}>
-                제목 : {title},
-                이름 : {name},
-                평점 : {grade},
-                고용횟수 : {hired_num},
-                주소 : {address}
+            <div>
+                <div key={title} className="media" id="active_gosu">
+                    <div className="media-left">
+                        <img src={active_gosu} alt="image"/>
+                    </div>
+                    <div id="active_gosu_info" class="media-body">
+                        <p><strong>{title}</strong></p>
+                        <p>{name}</p>
+                        <p>
+                            {this.renderStars()}
+                            ({review_num}개)
+                        </p>
+                        <p>
+                            <img src={require("../../img/popularity_section/hired_num.svg")}/>
+                            고용횟수 {hired_num}회
+                        </p>
+                        <p>
+                            <img src={require("../../img/popularity_section/location.svg")}/>
+                            {address}
+                        </p>
+                    </div>
+                </div>
             </div>
         )
     }

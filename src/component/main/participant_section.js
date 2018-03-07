@@ -99,7 +99,7 @@ export default class ParticipantSection extends Component {
                                 {comment}
                             </p>
                         </div>
-                        <div className="media">
+                        <div className="media" id="reviewer">
                             <div className="media-left media-middle">
                                 <img className="media-object" src={logo}
                                     alt={figure}/>
