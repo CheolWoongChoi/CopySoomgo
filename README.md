@@ -1,5 +1,7 @@
-# CopySoomgo <img src="./src/img/search_section/brand_logo.png" width="200px" height="70px"/>
+# <img src="./src/img/search_section/brand_logo.png" width="240px" height="70px"/>
 Soomgo Home 화면을 일부 Copy한 웹 어플리케이션 프로젝트입니다.
+
+[Soomgo Site]: https://soomgo.com/
 
 <br/><br/>
 
