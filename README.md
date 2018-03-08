@@ -19,9 +19,10 @@ Soomgo Home 화면을 일부 Copy한 웹 어플리케이션 프로젝트입니�
 * Javascript
 * Ecmascript6
 * React
-<br/>
-* BootStrap 3
-* React-Slick
+
+
+* [BootStrap 3](http://bootstrapk.com/) 
+* [React-Slick](https://github.com/akiran/react-slick)
 
 <br/>
 
