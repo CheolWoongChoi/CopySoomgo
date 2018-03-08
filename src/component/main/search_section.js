@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo1 from '../../img/brand_logo.png';
-import logo2 from '../../img/english.jpg';
 
 const accum_data = [
     { name: "누적 요청서", num: "510,000", unit: "개"},
@@ -80,13 +78,13 @@ export default class SearchSection extends Component {
                                         <span className="icon-bar"></span>
                                     </span>
                                     <div className={this.state.cancle}>
-                                        <img className="cancle_icon" src={require('../../img/cancle.png')} 
+                                        <img className="cancle_icon" src={require('../../img/search_section/cancle.png')} 
                                             alt="cancleImage"/>
                                     </div>
                                 </button>
                                 <a href="/">
                                     <img className="brand_logo" 
-                                        src={require('../../img/brand_logo.png')}
+                                        src={require('../../img/search_section/brand_logo.png')}
                                         alt="brandImage"/>
                                 </a>
                             </div>

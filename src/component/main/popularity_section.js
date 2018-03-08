@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Slick from 'react-slick';
-import active_gosu from '../../img/popularity_section/active_gosu_image.png';
 
-//const relative_url = '../../img/';
 const service_data = [
     { image: 'math.jpg', title: '수학 과외', gosu_num: '0'},
     { image: 'guitar.jpg', title: '기타 레슨', gosu_num: '1'},
@@ -10,34 +8,38 @@ const service_data = [
     { image: 'vocal.jpg', title: '보컬 레슨', gosu_num: '3'}
 ]
 
-const gosu_data = [
+const active_gosu_data = [
     {
-        title: "Danny's Heart Swing", 
-        name: '대니리(Danny Lee)', 
+        title: "Danny's Heart SWING", 
+        name: 'Danny Lee',
+        image: 'active_gosu_image_01.png', 
         review_num: 14, 
         hired_num: 7, 
-        address:'서울 마포구 아현동 327-25'
+        address:'서울 마포구 아현동 337-33'
     },
     {
-        title: '와가마마스쿨', 
-        name: '김명운', 
+        title: '와가바바스쿨', 
+        name: '김명희', 
+        image: 'active_gosu_image_02.png', 
         review_num: '15', 
         hired_num:'17', 
-        address:'서울 강남구 역삼동 705-14'
+        address:'서울 강남구 역삼동 765-23'
     },
     {
-        title: '영어 중국어 과외', 
-        name: '손용준', 
+        title: '영어 프랑스어 과외', 
+        name: '손용석', 
+        image: 'active_gosu_image_03.png', 
         review_num: '9', 
         hired_num:'8', 
-        address:'서울 광진구 천호대로 지하 550 (능동, 7호선 군자역)'
+        address:'서울 광진구 천호대로 지하 525'
     },
     {
-        title: '재즈피아노와 싱어송라이팅, 재즈화성학 및 시창청음과 우쿨렐레 레슨', 
-        name: '방지선', 
+        title: '재즈피아노와 싱어송라이팅, 재즈화성학 레슨', 
+        name: '방지영',
+        image: 'active_gosu_image_04.png',  
         review_num: '1', 
         hired_num:'5', 
-        address:'서울 마포구 동교로 192-1 (동교동)'
+        address:'서울 마포구 동교로 192-6'
     }  
 ]
 
@@ -46,7 +48,7 @@ function PrevArrow(props) {
     const {className, onClick} = props
 
         return (
-            <img src={require('../../img/prev_arrow.png')} alt="prev_arrow" 
+            <img src={require('../../img/popularity_section/prev_arrow.png')} alt="prev_arrow" 
                 className={className} onClick={onClick}/>
         );
 }
@@ -55,7 +57,7 @@ function NextArrow(props) {
     const {className, onClick} = props
 
         return (
-            <img src={require('../../img/next_arrow.png')} alt="next_arrow" 
+            <img src={require('../../img/popularity_section/next_arrow.png')} alt="next_arrow" 
                 className={className} onClick={onClick}/>
         );
 }
@@ -76,34 +78,34 @@ export default class PopularitySection extends Component {
     renderPopularService({image, title, gosu_num}){
         return(
             <div key={title}>
-                <img className="img_size" src={require('../../img/'+image)} alt="인기 서비스" />
+                <img className="img_size" src={require('../../img/popularity_section/'+image)} alt="인기 서비스" />
                 <h5><strong>{title}</strong></h5>
                 <h6>최근 활동 중인 고수 : {gosu_num}명</h6>
             </div>
         )
     }
 
-    renderActiveGosu({title, name, review_num, hired_num, address}){
+    renderActiveGosu({title, name, image, review_num, hired_num, address}){
         return(
-            <div>
-                <div key={title} className="media" id="active_gosu">
+            <div key={title}>
+                <div className="media" id="active_gosu">
                     <div className="media-left">
-                        <img src={active_gosu} alt="image"/>
+                        <img src={require('../../img/popularity_section/'+image)} alt="active_gosu_image"/>
                     </div>
                     <div id="active_gosu_info" class="media-body">
                         <p><strong>{title}</strong></p>
                         <p>{name}</p>
                         <p>
                             {this.renderStars()}
-                            ({review_num}개)
+                            <small>({review_num}개)</small>
                         </p>
                         <p>
-                            <img src={require("../../img/popularity_section/hired_num.svg")}/>
-                            고용횟수 {hired_num}회
+                            <img src={require("../../img/popularity_section/hired_num.svg")} alt="hired_num"/>
+                            <small>고용횟수 {hired_num}회</small>
                         </p>
                         <p>
-                            <img src={require("../../img/popularity_section/location.svg")}/>
-                            {address}
+                            <img src={require("../../img/popularity_section/location.svg")} alt="location"/>
+                            <small>{address}</small>
                         </p>
                     </div>
                 </div>
@@ -121,7 +123,7 @@ export default class PopularitySection extends Component {
             nextArrow: <NextArrow />,
             prevArrow: <PrevArrow />,
             responsive: [ 
-                { breakpoint: 650, settings: { slidesToShow: 1 } },
+                { breakpoint: 730, settings: { slidesToShow: 1 } },
                 { breakpoint: 930, settings: { slidesToShow: 2 } }, 
                 { breakpoint: 1024, settings: { slidesToShow: 3 } }, 
             ]
@@ -131,20 +133,24 @@ export default class PopularitySection extends Component {
             <div className="container-fluid" id="popularity_section">
                 <div>
                     <div>
-                        <h3><strong>숨고의 인기 서비스</strong></h3><br/><br/>
-                            <div align="justify">
-                                <Slick {...settings}>
-                                    {service_data.map( data => this.renderPopularService(data) )}
-                                </Slick>
-                            </div><br/><br/>
+                        <h3 className="popular_service_title_margin">
+                            <strong>숨고의 인기 서비스</strong>
+                        </h3><br/><br/>
+                        <div>
+                            <Slick {...settings}>
+                                {service_data.map( data => this.renderPopularService(data) )}
+                            </Slick>
+                        </div><br/><br/>
                     </div>
                     <div>
-                        <h3><strong>숨고의 활동 고수</strong></h3><br/><br/>
-                            <div align="justify">
-                                <Slick {...settings}>
-                                    {gosu_data.map( data => this.renderActiveGosu(data) )}   
-                                </Slick>
-                            </div>
+                        <h3 className="active_gosu_title_margin">
+                            <strong>숨고의 활동 고수</strong>
+                        </h3><br/><br/>
+                        <div>
+                            <Slick {...settings}>
+                                {active_gosu_data.map( data => this.renderActiveGosu(data) )}   
+                            </Slick>
+                        </div>
                     </div>
                 </div><br/><br/><br/>
                 <div id="gosu_intro" className="row">
@@ -153,7 +159,7 @@ export default class PopularitySection extends Component {
                     </div>
                     <div id="help_info">
                         <div className="col-md-6">
-                            <img src={require('../../img/gosu_image.png')} className="img-responsive" alt="고수 사진들"/>
+                            <img src={require('../../img/popularity_section/gosu_image.png')} className="img-responsive" alt="고수 사진들"/>
                         </div>
                         <div className="col-md-6">
                             <br/>

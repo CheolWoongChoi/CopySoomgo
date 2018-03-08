@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from '../../img/participant_section/reviewer_1.png';
 import Slick from 'react-slick';
 
 const review_data = [
     {
       title: "결혼준비 과정이 즐거웠어요",
-      figure: "../../img/participant_section/reviewer_1.png",
+      image: "reviewer_01.png",
       background_image: "gosu_background_image_01",
       gosu_name: "이성희 웨딩플래너",
       comment: `결정장애가 있는 저에게 결혼식장, 스드메를 고르는 일은 너무 스트레스 받는 일이였어요. 
@@ -16,7 +15,7 @@ const review_data = [
     },
     {
         title: "자신감을 심어준 촬영경험!!",
-        figure: "../../img/participant_section/reviewer_1.png",
+        image: "reviewer_02.png",
         background_image: "gosu_background_image_02",
         gosu_name: "강휘원 포토그래퍼",
         comment: `연기한지 5년이 지났는데 아직까지 이렇다할 성과가 없어서 자신감을 잃어가고 있었어요. 
@@ -27,7 +26,7 @@ const review_data = [
     },
     {
         title: "이제 피아노 치는 남자!",
-        figure: "../../img/participant_section/reviewer_1.png",
+        image: "reviewer_03.png",
         background_image: "gosu_background_image_03",
         gosu_name: "윤다정 피아노",
         comment: `피아노는 항상 배워보고 싶었어요. 처음이라 어색하고 어렵지는 않을까 걱정을 하기도 했지만 
@@ -38,7 +37,7 @@ const review_data = [
     },
     {
         title: "퍼스널트레이닝 좋아요.",
-        figure: "../../img/participant_section/reviewer_1.png",
+        image: "reviewer_04.png",
         background_image: "gosu_background_image_04",
         gosu_name: "박주형 PT",
         comment: `레슨 시작 전 부터 박주형 고수님은 제가 궁금해 하는 사항에 대해 자세히 알려주셨어요. 
@@ -54,7 +53,7 @@ function PrevArrow(props) {
     const {className, onClick} = props
 
         return (
-            <img src={require('../../img/prev_arrow.png')} alt="prev_arrow" 
+            <img src={require('../../img/participant_section/prev_arrow.png')} alt="prev_arrow" 
                 className={className} onClick={onClick}/>
         );
 }
@@ -63,7 +62,7 @@ function NextArrow(props) {
     const {className, onClick} = props
 
         return (
-            <img src={require('../../img/next_arrow.png')} alt="next_arrow" 
+            <img src={require('../../img/participant_section/next_arrow.png')} alt="next_arrow" 
                 className={className} onClick={onClick}/>
         );
 }
@@ -80,7 +79,7 @@ export default class ParticipantSection extends Component {
         return stars;
     }
 
-    renderThumbnail({title, figure, background_image, gosu_name, comment, participant_name, rate}){
+    renderThumbnail({title, image, background_image, gosu_name, comment, participant_name, rate}){
         return(
             <div key={title} className="col-xs-6 col-sm-6 col-md-4">
                 <div className="thumbnail" key={title}>
@@ -101,8 +100,8 @@ export default class ParticipantSection extends Component {
                         </div>
                         <div className="media" id="reviewer">
                             <div className="media-left media-middle">
-                                <img className="media-object" src={logo}
-                                    alt={figure}/>
+                                <img className="media-object" src={require('../../img/participant_section/'+image)}
+                                    alt={image}/>
                             </div>
                             <div className="media-body">
                                 <h4 className="media-heading"><small>{participant_name}</small></h4>
